@@ -1,0 +1,17 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "Company Metrics",
+  "name_for_model": "company_metrics",
+  "description_for_human": "Чтение метрик из Google Sheets под ключом",
+  "description_for_model": "Использует key, table и company для получения JSON из Apps Script",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "openapi",
+    "url": "https://Estonecccc.github.io/company-metrics-plugin/openapi.json",
+    "is_user_authenticated": false
+  },
+  "logo_url": "https://Estonecccc.github.io/company-metrics-plugin/logo.png",
+  "contact_email": "artem@makefortune.ae"
+}
