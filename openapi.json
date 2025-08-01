@@ -1,0 +1,58 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Company Metrics API",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://script.google.com/macros/s/AKfycbyLyEwa_a30b_WsCXPIA1DnMd5lsBX1r1PNeRTewe_NZ14o6VHF8KderB3O19kCNlheLA/exec"
+    }
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "summary": "Получить данные из Google Sheets",
+        "parameters": [
+          {
+            "name": "key",
+            "in": "query",
+            "required": true,
+            "schema": { "type": "string" },
+            "description": "Секретный ключ для авторизации"
+          },
+          {
+            "name": "table",
+            "in": "query",
+            "required": true,
+            "schema": { "type": "string" },
+            "description": "Ключ таблицы (clients_in_work, all_clients, audit_tax, accounting)"
+          },
+          {
+            "name": "company",
+            "in": "query",
+            "required": false,
+            "schema": { "type": "string" },
+            "description": "Опционально: фильтр по названию компании"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ответ с полем data (массив объектов) или error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": { "type": "array", "items": { "type": "object" } },
+                    "error": { "type": "string" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
